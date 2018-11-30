@@ -1,7 +1,6 @@
 package pack;
 
 import java.io.IOException;
-import java.io.ObjectInputStream.GetField;
 import java.io.ObjectOutputStream.PutField;
 import java.io.Serializable;
 
@@ -34,6 +33,11 @@ public class Employee implements Serializable {
 
 	private void writeObject(java.io.ObjectOutputStream out) throws IOException {
 		System.out.println("writeObject");
+		// controlling fields value here start.
+		/*PutField putFields = out.putFields();
+		putFields.put("name", "name changed");
+		out.writeFields();*/
+		// controlling fields value here end.
 		out.defaultWriteObject();
 	}
 
