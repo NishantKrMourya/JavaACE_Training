@@ -1,0 +1,77 @@
+/**
+* we have to sort a list of employee by firstName then lastName and if lastName is empty then all those employee should appear at the
+* bottom of list but sorted by firstName.
+*/
+
+package pack;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class SortingQuestion {
+
+	static class Employee {
+		private int id;
+		private String fname;
+		private String lname;
+
+		public Employee(int id, String fname, String lname) {
+			super();
+			this.id = id;
+			this.fname = fname;
+			this.lname = lname;
+		}
+
+		@Override
+		public String toString() {
+			return "Employee [id=" + id + ", fname=" + fname + ", lname=" + lname + "]";
+		}
+
+	}
+
+	static class EmployeeFnameComparator implements Comparator<Employee> {
+
+		@Override
+		public int compare(Employee o1, Employee o2) {
+			return o1.fname.compareTo(o2.fname);
+		}
+
+	}
+	
+	static class EmployeeLnameComparator implements Comparator<Employee> {
+
+		@Override
+		public int compare(Employee o1, Employee o2) {
+			return o1.lname.compareTo(o2.lname);
+		}
+
+	}
+
+	public static void main(String[] args) {
+		SortingQuestion.EmployeeFnameComparator employeeFnameComparator = new SortingQuestion.EmployeeFnameComparator();
+		SortingQuestion.EmployeeLnameComparator employeeLnameComparator = new SortingQuestion.EmployeeLnameComparator();
+		Employee employee1 = new SortingQuestion.Employee(10, "f1", "l1");
+		Employee employee5 = new SortingQuestion.Employee(50, "f5", "");
+		Employee employee6 = new SortingQuestion.Employee(60, "f6", "");
+		Employee employee7 = new SortingQuestion.Employee(70, "f7", "");
+		Employee employee2 = new SortingQuestion.Employee(20, "f2", "l2");
+		Employee employee3 = new SortingQuestion.Employee(30, "f3", "l3");
+		Employee employee4 = new SortingQuestion.Employee(40, "f4", "");
+		
+		List<Employee> arrayList = new ArrayList<>();
+		arrayList.add(employee3);
+		arrayList.add(employee1);
+		arrayList.add(employee2);
+		arrayList.add(employee4);
+		arrayList.add(employee5);
+		arrayList.add(employee6);
+		arrayList.add(employee7);
+		
+		Collections.sort(arrayList,employeeFnameComparator.thenComparing(employeeLnameComparator));
+		System.out.println(arrayList);
+		
+	}
+
+}
