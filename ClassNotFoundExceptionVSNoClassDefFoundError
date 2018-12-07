@@ -5,7 +5,7 @@ It is thrown by the application itself. It is thrown by the methods like Class.f
 It occurs when classpath is not updated with required JAR files.
 
 NoClassDefFoundError
-It is an error. It is of type java.lang.Error.
+It is an error. It is of type java.lang.Error. extends LinkageError
 It occurs when java runtime system doesn’t find a class definition, which is present at compile time, but missing at run time.
 It is thrown by the Java Runtime System.
 It occurs when required class definition is missing at runtime.
