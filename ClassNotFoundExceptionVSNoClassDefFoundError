@@ -1,0 +1,11 @@
+ClassNotFoundException
+It is an exception. It is of type java.lang.Exception.
+It occurs when an application tries to load a class at run time which is not updated in the classpath.
+It is thrown by the application itself. It is thrown by the methods like Class.forName(), loadClass() and findSystemClass().
+It occurs when classpath is not updated with required JAR files.
+
+NoClassDefFoundError
+It is an error. It is of type java.lang.Error.
+It occurs when java runtime system doesn’t find a class definition, which is present at compile time, but missing at run time.
+It is thrown by the Java Runtime System.
+It occurs when required class definition is missing at runtime.
